@@ -1,0 +1,7 @@
+ARG PHP_FPM_VERSION
+
+FROM php:${PHP_FPM_VERSION}
+
+CMD ["php-fpm"]
+
+EXPOSE 9000

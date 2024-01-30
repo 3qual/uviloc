@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>URL</key>
+	<string>https://hub.docker.com/layers/library/python/3.11.7-alpine3.18/images/sha256-5e6a1b5f58efba3b2bd4affdce2a5075832c986fa6ccfad32c3998b8c91a3ca0?context=explore</string>
+</dict>
+</plist>
