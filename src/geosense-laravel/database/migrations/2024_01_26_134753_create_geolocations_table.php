@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('geolocations', function (Blueprint $table) {
             $table->id();
             $table->integer('tracker_id');
-            $table->timestamps('date_added');
             $table->string('coordinates');
             $table->timestamps();
         });

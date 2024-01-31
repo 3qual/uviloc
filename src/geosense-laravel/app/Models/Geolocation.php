@@ -11,7 +11,6 @@ class Geolocation extends Model
 
     protected $fillable = [
         'tracker_id',
-        'date_added',
         'coordinates'
     ];
 
