@@ -8,6 +8,12 @@ use App\Models\Geolocation;
 
 class GeolocationController extends Controller
 {
+    public function getAll()
+    {
+        return Geolocation::all();
+    }
+
+
     /**
      * Display a listing of the resource.
      */

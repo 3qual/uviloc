@@ -2,65 +2,80 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    // GET
+    public function getAll()
     {
-        //
+        return User::all();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    // GET
+    public function getItemById(Request $request)
     {
-        //
+        $human = $request->validate([
+            'id'=> 'required'
+        ]);
+        $user = User::find($human['id']);
+        return $user;
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreUserRequest $request)
+
+    // POST
+    public function create(Request $request)
     {
-        //
+        $human = $request->validate([
+            'is_active'=> 'nullable',
+            'username'=> 'required|unique:users', 
+            'name'=> 'nullable',
+            'phone_number'=> 'nullable',
+            'email'=> 'nullable',
+            'path_to_avatar'=> 'nullable',
+            'password'=> 'required'
+        ]);
+        $user = User::create($human); 
+        return $user;
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(User $user)
+
+    // PUT
+    public function update(Request $request)
     {
-        //
+        $human = $request->validate([
+            'id'=> 'required',
+            'is_active'=> 'nullable',
+            'username'=> 'nullable', 
+            'name'=> 'nullable',
+            'phone_number'=> 'nullable',
+            'email'=> 'nullable',
+            'path_to_avatar'=> 'nullable',
+            'password'=> 'nullable'
+        ]);
+        $user = User::find($human['id'])->update($human); 
+        return $user;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(User $user)
+
+    // PATCH
+    public function updatePassword()
     {
-        //
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateUserRequest $request, User $user)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(User $user)
+    // DELETE
+    public function delete($id)
     {
-        //
+        $human = User::find($id);
+        if($human)
+        {
+            $human->delete();
+        }
+        return $human;
     }
 }

@@ -3,6 +3,10 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\TrackerController;
+use App\Http\Controllers\GeolocationController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +21,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('users/', [UserController::class, 'getAll']);
+Route::get('users', [UserController::class, 'getItemById']);
+Route::post('users', [UserController::class, 'create']);
+Route::put('users', [UserController::class, 'update']);
+Route::delete('users/{id}', [UserController::class, 'delete']);
+
+
+Route::get('trackers/', [TrackerController::class, 'getAll']);
+Route::get('geolocations/', [GeolocationController::class, 'getAll']);

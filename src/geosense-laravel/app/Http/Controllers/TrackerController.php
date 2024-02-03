@@ -8,6 +8,12 @@ use App\Models\Tracker;
 
 class TrackerController extends Controller
 {
+    public function getAll()
+    {
+        return Tracker::all();
+    }
+    
+
     /**
      * Display a listing of the resource.
      */
