@@ -36,4 +36,8 @@ Route::put('trackers/{id}', [TrackerController::class, 'update']);
 Route::patch('trackers/{id}', [TrackerController::class, 'updateSimNumber']);
 Route::delete('trackers/{id}', [TrackerController::class, 'delete']);
 
-Route::get('geolocations/', [GeolocationController::class, 'getAll']);
+Route::get('geolocations', [GeolocationController::class, 'getAll']);
+Route::get('geolocations/{id}', [GeolocationController::class, 'getItemByTrackerId']);
+Route::post('geolocations/', [GeolocationController::class, 'create']);
+Route::put('geolocations/{id}', [GeolocationController::class, 'update']);
+Route::delete('geolocations/{id}', [GeolocationController::class, 'delete']);

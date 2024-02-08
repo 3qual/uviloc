@@ -22,7 +22,8 @@ class StoreGeolocationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'tracker_id'=> 'required',
+            'coordinates'=> 'required'
         ];
     }
 }

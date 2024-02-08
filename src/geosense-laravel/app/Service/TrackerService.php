@@ -8,7 +8,7 @@ class TrackerService
 {
     public function getAll()
     {
-        return Tracker::all();
+        return Tracker::paginate(10);
     }
 
     public function getItemById($id)

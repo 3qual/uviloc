@@ -22,7 +22,8 @@ class UpdateGeolocationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'tracker_id'=> 'nullable',
+            'coordinates'=> 'nullable'
         ];
     }
 }

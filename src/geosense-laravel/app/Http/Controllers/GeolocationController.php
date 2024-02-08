@@ -6,67 +6,47 @@ use App\Http\Requests\StoreGeolocationRequest;
 use App\Http\Requests\UpdateGeolocationRequest;
 use App\Models\Geolocation;
 
+use App\Service\GeolocationService;
+
 class GeolocationController extends Controller
 {
+    protected $GeolocationService;
+
+    public function __construct() {
+        $this->GeolocationService = new GeolocationService();
+    }
+
+
+    // GET
     public function getAll()
     {
-        return Geolocation::all();
+        return $this->GeolocationService->getAll();
+    }
+
+    // GET
+    public function getItemByTrackerId($id)
+    {
+        return $this->GeolocationService->getItemByTrackerId($id);
     }
 
 
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    // POST
+    public function create(StoreGeolocationRequest $request)
     {
-        //
+        return $this->GeolocationService->create($request);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+
+    // PUT
+    public function update($id, UpdateGeolocationRequest $request)
     {
-        //
+        return $this->GeolocationService->update($id, $request);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreGeolocationRequest $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Geolocation $geolocation)
+    // DELETE
+    public function delete($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Geolocation $geolocation)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateGeolocationRequest $request, Geolocation $geolocation)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Geolocation $geolocation)
-    {
-        //
+        return $this->GeolocationService->delete($id);
     }
 }

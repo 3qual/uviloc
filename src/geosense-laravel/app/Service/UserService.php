@@ -8,7 +8,7 @@ class UserService
 {
     public function getAll()
     {
-        return User::all();
+        return User::paginate(10);
     }
 
     public function getItemById($id)

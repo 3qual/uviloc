@@ -92,7 +92,7 @@ services:
         args:
           - PYTHON_VERSION=${PYTHON_VERSION}
       volumes:
-        - ${APP_CODE_PATH_HOST}/robot:${PYTHON_BOT_DIR}/robot
+        - ${APP_CODE_PATH_HOST}/geosense-tgbot:${PYTHON_BOT_DIR}/geosense-tgbot
       ports:
         - ${PYTHON_BOT_PORT}:${PYTHON_BOT_PORT}
       networks:
