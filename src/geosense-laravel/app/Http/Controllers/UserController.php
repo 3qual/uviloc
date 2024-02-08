@@ -17,6 +17,7 @@ class UserController extends Controller
         $this->UserService = new UserService();
     }
 
+
     // GET
     public function getAll()
     {
@@ -26,35 +27,34 @@ class UserController extends Controller
     // GET
     public function getItemById($id)
     {
-
-        return $UserService->getItemById($id);
+        return $this->UserService->getItemById($id);
     }
 
 
     // POST
     public function create(StoreUserRequest $request)
     {
-        return $UserService->create($request);
+        return $this->UserService->create($request);
     }
 
 
     // PUT
     public function update($id, UpdateUserRequest $request)
     {
-        return $UserService->update($id, $request);
+        return $this->UserService->update($id, $request);
     }
 
 
     // PATCH
     public function updatePassword($id, UpdateUserPasswordRequest $request)
     {
-        return $UserService->updatePassword($id, $request);
+        return $this->UserService->updatePassword($id, $request);
     }
 
 
     // DELETE
     public function delete($id)
     {
-        return $UserService->delete($id);
+        return $this->UserService->delete($id);
     }
 }

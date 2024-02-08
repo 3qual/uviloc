@@ -18,17 +18,17 @@ class UserService
 
     public function create($data)
     {
-        return User::create($data);
+        return User::create($data->toArray());
     }
 
     public function update($id, $data)
     {
-        return User::find($id)->update($data);
+        return User::find($id)->update($data->toArray());
     }
     
     public function updatePassword($id, $data)
     {
-        return User::find($id)->update($request);
+        return User::find($id)->update($data->toArray());
     }
 
     public function delete($id)

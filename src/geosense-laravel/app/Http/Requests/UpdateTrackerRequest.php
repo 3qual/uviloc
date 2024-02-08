@@ -11,7 +11,7 @@ class UpdateTrackerRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,9 @@ class UpdateTrackerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'user_id'=> 'nullable|unique:trackers',
+            'sim_phone_number'=> 'nullable',
+            'name'=> 'nullable'
         ];
     }
 }
