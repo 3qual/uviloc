@@ -8,65 +8,18 @@ use App\Models\Tracker;
 
 class TrackerController extends Controller
 {
+    // GET
     public function getAll()
     {
         return Tracker::all();
     }
     
-
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    // GET
+    public function getItemById($id)
     {
-        //
+        $tracker = Tracker::find($id);
+        return $tracker;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreTrackerRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Tracker $tracker)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Tracker $tracker)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateTrackerRequest $request, Tracker $tracker)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Tracker $tracker)
-    {
-        //
-    }
+    
 }

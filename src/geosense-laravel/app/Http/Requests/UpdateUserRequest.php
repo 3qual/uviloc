@@ -22,7 +22,13 @@ class UpdateUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+                'is_active'=> 'nullable',
+                'username'=> 'nullable', 
+                'name'=> 'nullable',
+                'phone_number'=> 'nullable',
+                'email'=> 'nullable',
+                'path_to_avatar'=> 'nullable',
+                'password'=> 'nullable'
         ];
     }
 }

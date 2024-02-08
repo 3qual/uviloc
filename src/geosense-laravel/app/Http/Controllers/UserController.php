@@ -5,77 +5,56 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
-use App\Models\User;
+use App\Http\Requests\UpdateUserPasswordRequest;
+
+use App\Service\UserService;
 
 class UserController extends Controller
 {
-    // GET
-    public function getAll()
-    {
-        return User::all();
+    protected $UserService;
+
+    public function __construct() {
+        $this->UserService = new UserService();
     }
 
     // GET
-    public function getItemById(Request $request)
+    public function getAll()
     {
-        $human = $request->validate([
-            'id'=> 'required'
-        ]);
-        $user = User::find($human['id']);
-        return $user;
+        return $this->UserService->getAll();
+    }
+
+    // GET
+    public function getItemById($id)
+    {
+
+        return $UserService->getItemById($id);
     }
 
 
     // POST
-    public function create(Request $request)
+    public function create(StoreUserRequest $request)
     {
-        $human = $request->validate([
-            'is_active'=> 'nullable',
-            'username'=> 'required|unique:users', 
-            'name'=> 'nullable',
-            'phone_number'=> 'nullable',
-            'email'=> 'nullable',
-            'path_to_avatar'=> 'nullable',
-            'password'=> 'required'
-        ]);
-        $user = User::create($human); 
-        return $user;
+        return $UserService->create($request);
     }
 
 
     // PUT
-    public function update(Request $request)
+    public function update($id, UpdateUserRequest $request)
     {
-        $human = $request->validate([
-            'id'=> 'required',
-            'is_active'=> 'nullable',
-            'username'=> 'nullable', 
-            'name'=> 'nullable',
-            'phone_number'=> 'nullable',
-            'email'=> 'nullable',
-            'path_to_avatar'=> 'nullable',
-            'password'=> 'nullable'
-        ]);
-        $user = User::find($human['id'])->update($human); 
-        return $user;
+        return $UserService->update($id, $request);
     }
 
 
     // PATCH
-    public function updatePassword()
+    public function updatePassword($id, UpdateUserPasswordRequest $request)
     {
-
+        return $UserService->updatePassword($id, $request);
     }
 
 
     // DELETE
     public function delete($id)
     {
-        $human = User::find($id);
-        if($human)
-        {
-            $human->delete();
-        }
-        return $human;
+        return $UserService->delete($id);
     }
 }
