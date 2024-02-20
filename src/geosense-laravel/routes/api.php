@@ -41,3 +41,4 @@ Route::get('geolocations/{id}', [GeolocationController::class, 'getItemByTracker
 Route::post('geolocations/', [GeolocationController::class, 'create']);
 Route::put('geolocations/{id}', [GeolocationController::class, 'update']);
 Route::delete('geolocations/{id}', [GeolocationController::class, 'delete']);
+
