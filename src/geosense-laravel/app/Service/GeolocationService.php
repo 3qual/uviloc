@@ -8,7 +8,10 @@ class GeolocationService
 {
     public function getAll()
     {
-        return Geolocation::paginate(10);
+        // Временный костыль, нужно будет оставить пагинацию!
+
+        //return Geolocation::paginate(10);
+        return Geolocation::all();
     }
 
     public function getItemByTrackerId($id)

@@ -10,12 +10,12 @@ class Geolocation extends Model
     use HasFactory;
 
     protected $fillable = [
-        'tracker_id',
+        'tracker_token',
         'coordinates'
     ];
 
     public function tracker()
     {
-        return $this->belongsTo(Tracker::class, 'tracker_id', 'id');
+        return $this->belongsTo(Tracker::class, 'tracker_token', 'token');
     }
 }

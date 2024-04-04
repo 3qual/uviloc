@@ -28,6 +28,7 @@ class StoreUserRequest extends FormRequest
             'phone_number'=> 'nullable',
             'email'=> 'nullable',
             'path_to_avatar'=> 'nullable',
+            'tg_chatid' => 'nullable',
             'password'=> 'required'
         ];
     }

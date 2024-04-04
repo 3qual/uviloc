@@ -18,13 +18,13 @@ class User extends Authenticatable
         'name',
         'phone_number',
         'email',
+        'tg_chatid',
         'path_to_avatar',
         'password'
     ];
 
     protected $hidden = [
-        'password',
-        'remember_token',
+        'password'
     ];
 
     protected $casts = [

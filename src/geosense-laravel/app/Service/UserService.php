@@ -8,6 +8,8 @@ class UserService
 {
     public function getAll()
     {
+        // Временный костыль, нужно будет оставить пагинацию!
+
         //return User::paginate(10);
         return User::all();
     }

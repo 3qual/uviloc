@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('geolocations', function (Blueprint $table) {
             $table->id();
-            $table->integer('tracker_id');
-            $table->string('coordinates');
+            $table->string('tracker_token')->required();
+            $table->string('coordinates')->required();
             $table->timestamps();
         });
     }

@@ -8,12 +8,20 @@ class TrackerService
 {
     public function getAll()
     {
-        return Tracker::paginate(10);
+        // Временный костыль, нужно будет оставить пагинацию!
+
+        //return Tracker::paginate(10);
+        return Tracker::all();
     }
 
     public function getItemById($id)
     {
         return Tracker::find($id);
+    }
+
+    public function getItemByUserId($user_id)
+    {
+        return Tracker::where('user_id','=',$user_id)->get();
     }
 
     public function create($data)

@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('trackers', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->string('tocken')->unique();
-            $table->string('sim_phone_number');
-            $table->string('name');
+            $table->string('user_username')->nullable();
+            $table->string('tocken')->required()->unique();
+            $table->string('sim_phone_number')->nullable();
+            $table->string('name')->nullable();
             $table->timestamps();
         });
     }

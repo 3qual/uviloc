@@ -22,7 +22,7 @@ class StoreTrackerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'user_id'=> 'required|unique:trackers',
+            'user_id'=> 'required',
             'tocken'=> 'required|unique:trackers',
             'sim_phone_number'=> 'nullable',
             'name'=> 'nullable'

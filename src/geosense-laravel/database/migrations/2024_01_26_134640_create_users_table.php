@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->boolean('is_active')->default(1);
-            $table->string('username')->unique();
-            $table->string('name');
-            $table->string('phone_number');
-            $table->string('email');
-            $table->string('path_to_avatar');
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('username')->required()->unique();
+            $table->string('name')->nullable();
+            $table->string('phone_number')->nullable();
+            $table->string('email')->nullable();
+            $table->string('tg_chatid')->nullable();
+            $table->string('path_to_avatar')->default("noavatar.jpg");
+            $table->string('password')->required();
             $table->timestamps();
         });
     }

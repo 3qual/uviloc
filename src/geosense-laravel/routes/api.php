@@ -30,7 +30,8 @@ Route::patch('users/{id}', [UserController::class, 'updatePassword']);
 Route::delete('users/{id}', [UserController::class, 'delete']);
 
 Route::get('trackers', [TrackerController::class, 'getAll']);
-Route::get('trackers/{id}', [TrackerController::class, 'getItemById']);
+#Route::get('trackers/{id}', [TrackerController::class, 'getItemById']);
+Route::get('trackers/{id}', [TrackerController::class, 'getItemByUserId']);
 Route::post('trackers/', [TrackerController::class, 'create']);
 Route::put('trackers/{id}', [TrackerController::class, 'update']);
 Route::patch('trackers/{id}', [TrackerController::class, 'updateSimNumber']);

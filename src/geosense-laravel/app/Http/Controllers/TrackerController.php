@@ -30,6 +30,11 @@ class TrackerController extends Controller
         return $this->TrackerService->getItemById($id);
     }
 
+    // GET
+    public function getItemByUserId($user_id)
+    {
+        return $this->TrackerService->getItemByUserId($user_id);
+    }
 
     // POST
     public function create(StoreTrackerRequest $request)
