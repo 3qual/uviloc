@@ -1,1 +1,0 @@
-python3 /home/geosense-tgbot/main.py

@@ -35,7 +35,7 @@ services:
         args:
           - PHP_FPM_VERSION=${PHP_FPM_VERSION}
       volumes:
-        - ${APP_CODE_PATH_HOST}/geosense-laravel:${APP_CODE_PATH_CONTAINER}/geosense-laravel
+        - ${APP_CODE_PATH_HOST}/uviloc-laravel:${APP_CODE_PATH_CONTAINER}/uviloc-laravel
       ports:
         - "${PHP_FPM_XDEBUG_PORT}:${PHP_FPM_XDEBUG_PORT}"
       networks:
@@ -79,7 +79,7 @@ services:
 #         args:
 #           - NODE_VERSION=${NODE_VERSION}
 #       volumes:
-#         - ${APP_CODE_PATH_HOST}/geosense-react_nextjs:${NODE_REACT_DIR}/geosense-react_nextjs
+#         - ${APP_CODE_PATH_HOST}/uviloc-react_nextjs:${NODE_REACT_DIR}/uviloc-react_nextjs
 #       ports:
 #         - "${NODE_REACT_PORT}:${NODE_REACT_PORT}"
 #       networks:
@@ -94,7 +94,7 @@ services:
         args:
           - PYTHON_VERSION=${PYTHON_VERSION}
       volumes:
-        - ${APP_CODE_PATH_HOST}/geosense-tgbot:${PYTHON_BOT_DIR}/geosense-tgbot
+        - ${APP_CODE_PATH_HOST}/uviloc-tgbot:${PYTHON_BOT_DIR}/uviloc-tgbot
       ports:
         - ${PYTHON_BOT_PORT}:${PYTHON_BOT_PORT}
       networks:

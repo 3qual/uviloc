@@ -56,7 +56,7 @@ def start(message):
     else:
         markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
         markup.add(types.KeyboardButton("/start"))
-        bot.send_message(message.from_user.id, "You're not registered your telegram yet!\n\nYour Telegram ChatID is:  "+str(message.chat.id)+"\n\nPlease put your ChatID in your profile settings over GeoSense Web or Mobile app and restart the bot!", reply_markup=markup)
+        bot.send_message(message.from_user.id, "You're not registered your telegram yet!\n\nYour Telegram ChatID is:  "+str(message.chat.id)+"\n\nPlease put your ChatID in your profile settings over uviloc Web or Mobile app and restart the bot!", reply_markup=markup)
 
 @bot.message_handler(content_types=['text'])
 def get_text_message(message):
