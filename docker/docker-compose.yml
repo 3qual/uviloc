@@ -71,20 +71,20 @@ services:
       extra_hosts:
         - "host.docker.internal:host-gateway"  
 
-### Node ###########################################
-    node:
-      tty: true
-      build:
-        context: ./node
-        args:
-          - NODE_VERSION=${NODE_VERSION}
-      volumes:
-        - ${APP_CODE_PATH_HOST}/geosense-react_nextjs:${NODE_REACT_DIR}/geosense-react_nextjs
-      ports:
-        - "${NODE_REACT_PORT}:${NODE_REACT_PORT}"
-      networks:
-        - frontend
-        - backend
+# ### Node ###########################################
+#     node:
+#       tty: true
+#       build:
+#         context: ./node
+#         args:
+#           - NODE_VERSION=${NODE_VERSION}
+#       volumes:
+#         - ${APP_CODE_PATH_HOST}/geosense-react_nextjs:${NODE_REACT_DIR}/geosense-react_nextjs
+#       ports:
+#         - "${NODE_REACT_PORT}:${NODE_REACT_PORT}"
+#       networks:
+#         - frontend
+#         - backend
 
 ### Python ###########################################
     python:
