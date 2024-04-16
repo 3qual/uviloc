@@ -25,4 +25,11 @@ class UpdateTrackerSimNumberRequest extends FormRequest
             'sim_phone_number'=> 'required'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'sim_phone_number.string' => 'The sim_phone_number must be a string'
+        ];
+    }
 }

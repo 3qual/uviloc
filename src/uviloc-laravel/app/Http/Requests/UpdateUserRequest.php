@@ -22,14 +22,14 @@ class UpdateUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-                'is_active'=> 'nullable',
-                'username'=> 'nullable', 
-                'name'=> 'nullable',
-                'phone_number'=> 'nullable',
-                'email'=> 'nullable',
-                'path_to_avatar'=> 'nullable',
-                'tg_chatid' => 'nullable',
-                'password'=> 'nullable'
+            'is_active'=> 'nullable',
+            'username'=> 'required|unique:users', 
+            'name'=> 'nullable',
+            'phone_number'=> 'nullable',
+            'email'=> 'nullable',
+            'path_to_avatar'=> 'nullable',
+            'tg_chatid' => 'nullable',
+            'password'=> 'required'
         ];
     }
 }

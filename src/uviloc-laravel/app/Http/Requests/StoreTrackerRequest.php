@@ -22,10 +22,20 @@ class StoreTrackerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'user_id'=> 'required',
-            'tocken'=> 'required|unique:trackers',
+            'user_username'=> 'nullable',
+            'token'=> 'required|unique:trackers',
             'sim_phone_number'=> 'nullable',
             'name'=> 'nullable'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'user_username.string' => 'The user_username must be a string',
+            'tocken.required' => 'The tocken field is required',
+            'sim_phone_number.string' => 'The sim_phone_number must be a string',
+            'name.string' => 'The name must be a string'
         ];
     }
 }

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('trackers', function (Blueprint $table) {
             $table->id();
             $table->string('user_username')->nullable();
-            $table->string('tocken')->required()->unique();
+            $table->string('token')->required()->unique();
             $table->string('sim_phone_number')->nullable();
             $table->string('name')->nullable();
             $table->timestamps();

@@ -21,6 +21,7 @@ class UserController extends Controller
     // GET
     public function getAll()
     {
+        
         return $this->UserService->getAll();
     }
 
