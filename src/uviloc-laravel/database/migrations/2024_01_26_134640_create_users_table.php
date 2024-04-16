@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('username')->required()->unique();
             $table->string('name')->nullable();
             $table->string('phone_number')->nullable();
-            $table->string('email')->nullable();
+            #$table->string('email')->nullable()->unique();
             $table->string('tg_chatid')->nullable();
-            $table->string('path_to_avatar')->default("noavatar.jpg");
+            $table->string('path_to_avatar')->default("noavatar.png");
             $table->string('password')->required();
             $table->timestamps();
         });

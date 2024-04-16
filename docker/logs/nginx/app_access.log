@@ -323,3 +323,7 @@
 192.168.65.1 - - [16/Apr/2024:00:57:42 +0000] "GET /api/trackers/ HTTP/1.1" 200 1455 "-" "python-requests/2.31.0"
 192.168.65.1 - - [16/Apr/2024:00:57:42 +0000] "POST /api/trackers/ HTTP/1.1" 201 207 "-" "python-requests/2.31.0"
 192.168.65.1 - - [16/Apr/2024:00:57:54 +0000] "GET /api/trackers/ HTTP/1.1" 200 1477 "-" "PostmanRuntime/7.37.3"
+192.168.65.1 - - [16/Apr/2024:00:58:35 +0000] "GET /api/trackers/ HTTP/1.1" 200 1477 "-" "PostmanRuntime/7.37.3"
+192.168.65.1 - - [16/Apr/2024:01:25:09 +0000] "POST /api/users/ HTTP/1.1" 302 322 "-" "PostmanRuntime/7.37.3"
+192.168.65.1 - - [16/Apr/2024:01:25:09 +0000] "GET / HTTP/1.1" 200 7156 "http://localhost/api/users/" "PostmanRuntime/7.37.3"
+192.168.65.1 - - [16/Apr/2024:01:25:15 +0000] "GET /api/users/ HTTP/1.1" 200 188 "-" "PostmanRuntime/7.37.3"

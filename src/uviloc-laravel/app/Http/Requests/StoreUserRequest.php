@@ -26,7 +26,7 @@ class StoreUserRequest extends FormRequest
             'username'=> 'required|unique:users', 
             'name'=> 'nullable',
             'phone_number'=> 'nullable',
-            'email'=> 'nullable',
+            #'email'=> 'nullable',
             'path_to_avatar'=> 'nullable',
             'tg_chatid' => 'nullable',
             'password'=> 'required'
