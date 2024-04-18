@@ -6,38 +6,44 @@ use App\Models\User;
 
 class UserService
 {
+    public function generateRandomString(): string
+    {
+        $length = 64;
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+=';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[random_int(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
+
+
+
     public function getAll()
     {
-        // Временный костыль, нужно будет оставить пагинацию!
-
-        //return User::paginate(10);
-        return User::all();
+        return User::paginate(10);
     }
 
-    public function getItemById($id)
+    public function createorget($data)
     {
-        return User::find($id);
+        $res = User::where('username', $data['username'])->first();
+        if(!str_contains(User::get(), $data['username'])){
+            $data['access_token'] = $this->generateRandomString();
+            User::create($data->toArray());
+            return User::where('username', $data['username'])->first();
+        }
+        return $res;
     }
 
-    public function create($data)
+    public function update($access_token, $data)
     {
-        
-        return User::create($data->toArray());
+        return User::where('access_token', $access_token)->update($data->toArray());
     }
 
-    public function update($id, $data)
+    public function delete($access_token)
     {
-        return User::find($id)->update($data->toArray());
-    }
-    
-    public function updatePassword($id, $data)
-    {
-        return User::find($id)->update($data->toArray());
-    }
-
-    public function delete($id)
-    {
-        $human = User::find($id);
+        $human = User::find($access_token);
         if($human)
         {
             $human->delete();

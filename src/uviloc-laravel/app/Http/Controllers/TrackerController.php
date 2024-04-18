@@ -25,15 +25,15 @@ class TrackerController extends Controller
     }
 
     // GET
-    public function getItemById($id)
+    public function getItemByTrackerToken($token)
     {
-        return $this->TrackerService->getItemById($id);
+        return $this->TrackerService->getItemByTrackerToken($token);
     }
 
     // GET
-    public function getItemByUserId($user_id)
+    public function getItemByUserUsername($access_token)
     {
-        return $this->TrackerService->getItemByUserId($user_id);
+        return $this->TrackerService->getItemByUserUsername($access_token);
     }
 
     // POST
@@ -44,16 +44,9 @@ class TrackerController extends Controller
 
 
     // PUT
-    public function update($id, UpdateTrackerRequest $request)
+    public function update(UpdateTrackerRequest $request)
     {
-        return $this->TrackerService->update($id, $request);
-    }
-
-
-    // PATCH
-    public function updateSimNumber($id, UpdateTrackerSimNumberRequest $request)
-    {
-        return $this->TrackerService->updateSimNumber($id, $request);
+        return $this->TrackerService->update($request);
     }
 
 

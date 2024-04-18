@@ -25,10 +25,10 @@ class UpdateUserRequest extends FormRequest
             'is_active'=> 'nullable',
             'username'=> 'required|unique:users', 
             'name'=> 'nullable',
-            'phone_number'=> 'nullable',
-            'email'=> 'nullable',
+            'phone_number'=> 'nullable|unique:users',
+            'email'=> 'nullable|unique:users',
             'path_to_avatar'=> 'nullable',
-            'tg_chatid' => 'nullable',
+            'tg_chatid' => 'nullable|unique:users',
             'password'=> 'required'
         ];
     }

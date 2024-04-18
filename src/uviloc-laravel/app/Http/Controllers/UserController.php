@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\ValidateAnyUserRequest;
+//use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\UpdateUserPasswordRequest;
 
@@ -25,17 +26,11 @@ class UserController extends Controller
         return $this->UserService->getAll();
     }
 
-    // GET
-    public function getItemById($id)
-    {
-        return $this->UserService->getItemById($id);
-    }
-
 
     // POST
-    public function create(StoreUserRequest $request)
+    public function createorget(ValidateAnyUserRequest $request)
     {
-        return $this->UserService->create($request);
+        return $this->UserService->createorget($request);
     }
 
 
@@ -43,13 +38,6 @@ class UserController extends Controller
     public function update($id, UpdateUserRequest $request)
     {
         return $this->UserService->update($id, $request);
-    }
-
-
-    // PATCH
-    public function updatePassword($id, UpdateUserPasswordRequest $request)
-    {
-        return $this->UserService->updatePassword($id, $request);
     }
 
 

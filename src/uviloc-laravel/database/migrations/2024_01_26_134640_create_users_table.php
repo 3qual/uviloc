@@ -13,14 +13,15 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->boolean('is_active')->default(1);
+            $table->boolean('is_active')->default(true);
             $table->string('username')->required()->unique();
             $table->string('name')->nullable();
-            $table->string('phone_number')->nullable();
-            #$table->string('email')->nullable()->unique();
+            $table->string('phone_number')->nullable()->unique();
+            $table->string('email')->nullable()->unique();
             $table->string('tg_chatid')->nullable();
             $table->string('path_to_avatar')->default("noavatar.png");
             $table->string('password')->required();
+            $table->string('access_token')->nullable()->unique();
             $table->timestamps();
         });
     }

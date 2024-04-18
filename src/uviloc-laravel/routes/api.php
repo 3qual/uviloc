@@ -22,23 +22,20 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('users', [UserController::class, 'getAll']);
-Route::get('users/{id}', [UserController::class, 'getItemById']);
-Route::post('users/', [UserController::class, 'create']);
-Route::put('users/{id}', [UserController::class, 'update']);
-Route::patch('users/{id}', [UserController::class, 'updatePassword']);
-Route::delete('users/{id}', [UserController::class, 'delete']);
+Route::get('users/getall/', [UserController::class, 'getAll']);
+Route::post('users/createorget/', [UserController::class, 'createorget']);
+Route::put('users/update/{access_token}', [UserController::class, 'update']);
+Route::delete('users/delete/{access_token}', [UserController::class, 'delete']);
 
 Route::get('trackers', [TrackerController::class, 'getAll']);
-#Route::get('trackers/{id}', [TrackerController::class, 'getItemById']);
-Route::get('trackers/{id}', [TrackerController::class, 'getItemByUserId']);
+Route::get('trackers/getbytrackertoken/{token}', [TrackerController::class, 'getItemByTrackerToken']);
+Route::get('trackers/{access_token}', [TrackerController::class, 'getItemByUserUsername']);
 Route::post('trackers/', [TrackerController::class, 'create']);
-Route::put('trackers/{id}', [TrackerController::class, 'update']);
-Route::patch('trackers/{id}', [TrackerController::class, 'updateSimNumber']);
+Route::put('trackers/update/', [TrackerController::class, 'update']);
 Route::delete('trackers/{id}', [TrackerController::class, 'delete']);
 
 Route::get('geolocations', [GeolocationController::class, 'getAll']);
-Route::get('geolocations/{id}', [GeolocationController::class, 'getItemByTrackerId']);
+Route::get('geolocations/getbytrackertoken/{tracker_token}', [GeolocationController::class, 'getItemByTrackerToken']);
 Route::post('geolocations/', [GeolocationController::class, 'create']);
 Route::put('geolocations/{id}', [GeolocationController::class, 'update']);
 Route::delete('geolocations/{id}', [GeolocationController::class, 'delete']);

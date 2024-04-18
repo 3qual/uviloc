@@ -24,9 +24,9 @@ class GeolocationController extends Controller
     }
 
     // GET
-    public function getItemByTrackerId($id)
+    public function getItemByTrackerToken($tracker_token)
     {
-        return $this->GeolocationService->getItemByTrackerId($id);
+        return $this->GeolocationService->getItemByTrackerToken($tracker_token);
     }
 
 

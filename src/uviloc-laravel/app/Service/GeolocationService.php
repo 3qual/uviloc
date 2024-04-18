@@ -10,13 +10,12 @@ class GeolocationService
     {
         // Временный костыль, нужно будет оставить пагинацию!
 
-        //return Geolocation::paginate(10);
-        return Geolocation::all();
+        return Geolocation::paginate(10);
     }
 
-    public function getItemByTrackerId($id)
+    public function getItemByTrackerToken($tracker_token)
     {
-        return Geolocation::where('tracker_id','=',$id)->get();
+        return Geolocation::where('tracker_token','=',$tracker_token)->get();
     }
 
     public function create($data)

@@ -22,20 +22,20 @@ class UpdateTrackerRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'token'=> 'required',
             'user_username'=> 'nullable',
-            'token'=> 'required|unique:trackers',
-            'sim_phone_number'=> 'nullable',
-            'name'=> 'nullable'
+            'name'=> 'nullable',
+            'sim_phone_number'=> 'nullable|unique:trackers'
         ];
     }
 
-    public function messages()
-    {
-        return [
-            'user_username.string' => 'The user_username must be a string',
-            'tocken.required' => 'The tocken field is required',
-            'sim_phone_number.string' => 'The sim_phone_number must be a string',
-            'name.string' => 'The name must be a string'
-        ];
-    }
+    // public function messages()
+    // {
+    //     return [
+    //         'user_username.string' => 'The user_username must be a string',
+    //         'tocken.string' => 'The tocken must be a string',
+    //         'sim_phone_number.string' => 'The sim_phone_number must be a string',
+    //         'name.string' => 'The name must be a string'
+    //     ];
+    // }
 }

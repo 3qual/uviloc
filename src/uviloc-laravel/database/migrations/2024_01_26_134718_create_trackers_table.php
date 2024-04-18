@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('user_username')->nullable();
             $table->string('token')->required()->unique();
-            $table->string('sim_phone_number')->nullable();
+            $table->string('sim_phone_number')->nullable()->unique();
             $table->string('name')->nullable();
             $table->timestamps();
         });

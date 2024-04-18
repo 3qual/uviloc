@@ -20,12 +20,13 @@ class User extends Authenticatable
         'email',
         'tg_chatid',
         'path_to_avatar',
-        'password'
+        'password',
+        'access_token'
     ];
 
-    protected $hidden = [
-        'password'
-    ];
+    // protected $hidden = [
+    //     'password'
+    // ];
 
     protected $casts = [
         //'email_verified_at' => 'datetime',
