@@ -23,7 +23,7 @@ class UpdateTrackerRequest extends FormRequest
     {
         return [
             'token'=> 'required',
-            'user_username'=> 'nullable',
+            //'user_username'=> 'nullable',
             'name'=> 'nullable',
             'sim_phone_number'=> 'nullable|unique:trackers'
         ];

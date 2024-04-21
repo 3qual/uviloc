@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTrackerRequest;
 use App\Http\Requests\UpdateTrackerRequest;
-use App\Http\Requests\UpdateTrackerSimNumberRequest;
+use App\Http\Requests\GetTrackerByTokenRequest;
 use App\Models\Tracker;
+
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 
 use App\Service\TrackerService;
 
@@ -25,15 +28,15 @@ class TrackerController extends Controller
     }
 
     // GET
-    public function getItemByTrackerToken($token)
+    public function getItemByTrackerToken(Request $request, GetTrackerByTokenRequest $data)
     {
-        return $this->TrackerService->getItemByTrackerToken($token);
+        return $this->TrackerService->getItemByTrackerToken($request, $data);
     }
 
     // GET
-    public function getItemByUserUsername($access_token)
+    public function getItemByUserAccessToken(Request $request)
     {
-        return $this->TrackerService->getItemByUserUsername($access_token);
+        return $this->TrackerService->getItemByUserAccessToken($request);
     }
 
     // POST
@@ -44,6 +47,12 @@ class TrackerController extends Controller
 
 
     // PUT
+    public function linkToUser(Request $request, UpdateTrackerRequest $data)
+    {
+        return $this->TrackerService->linkToUser($request, $data);
+    }
+
+    // PUT
     public function update(UpdateTrackerRequest $request)
     {
         return $this->TrackerService->update($request);
@@ -51,8 +60,8 @@ class TrackerController extends Controller
 
 
     // DELETE
-    public function delete($id)
+    public function delete($token)
     {
-        return $this->TrackerService->delete($id);
+        return $this->TrackerService->delete($token);
     }
 }

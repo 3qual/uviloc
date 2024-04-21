@@ -6,6 +6,7 @@ import qrcode
 from PIL import Image
 
 install_dependencies = False
+api_url = "http://localhost/api/"
 
 
 if install_dependencies == True:
@@ -27,13 +28,13 @@ def generate_restricted_random_string():
     return random_string
 
 def post_tracker(token):
-    url = "http://localhost/api/trackers/"
+    url = api_url+"trackers/create/"
     tracker_obj = {"user_username": "", "token": token, "sim_phone_number": "", "name": ""}
     x = requests.post(url, json = tracker_obj)
     return x.text
 
 def unique_token_check(token):
-    response_json_str = str((requests.get('http://localhost/api/trackers/')).json())
+    response_json_str = str((requests.get(api_url+'trackers/get-all/')).json())
     if str.__contains__(response_json_str, token) == True:
         return True
     else: 

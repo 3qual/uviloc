@@ -22,21 +22,23 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('users/getall/', [UserController::class, 'getAll']);
-Route::post('users/createorget/', [UserController::class, 'createorget']);
-Route::put('users/update/{access_token}', [UserController::class, 'update']);
-Route::delete('users/delete/{access_token}', [UserController::class, 'delete']);
+Route::get('users/get-all/', [UserController::class, 'getAll']); // superadmin only
+Route::post('users/create-or-get/', [UserController::class, 'createorget']);
+// Route::put('users/update/', [UserController::class, 'update']); // acceess_token передается как bearer в header
+//  Route::delete('users/delete/{access_token}', [UserController::class, 'delete']);
 
-Route::get('trackers', [TrackerController::class, 'getAll']);
-Route::get('trackers/getbytrackertoken/{token}', [TrackerController::class, 'getItemByTrackerToken']);
-Route::get('trackers/{access_token}', [TrackerController::class, 'getItemByUserUsername']);
-Route::post('trackers/', [TrackerController::class, 'create']);
+Route::get('trackers/get-all/', [TrackerController::class, 'getAll']); // superadmin only
+Route::get('trackers/get-by-tracker-token/', [TrackerController::class, 'getItemByTrackerToken']); // acceess_token передается как bearer в header
+Route::get('trackers/get-by-access-token/', [TrackerController::class, 'getItemByUserAccessToken']); // acceess_token передается как bearer в header
+Route::post('trackers/create/', [TrackerController::class, 'create']); 
+Route::put('trackers/link-to-user/', [TrackerController::class, 'linkToUser']); // acceess_token передается как bearer в header
 Route::put('trackers/update/', [TrackerController::class, 'update']);
-Route::delete('trackers/{id}', [TrackerController::class, 'delete']);
+Route::delete('trackers/delete/{token}', [TrackerController::class, 'delete']);
 
-Route::get('geolocations', [GeolocationController::class, 'getAll']);
-Route::get('geolocations/getbytrackertoken/{tracker_token}', [GeolocationController::class, 'getItemByTrackerToken']);
-Route::post('geolocations/', [GeolocationController::class, 'create']);
-Route::put('geolocations/{id}', [GeolocationController::class, 'update']);
-Route::delete('geolocations/{id}', [GeolocationController::class, 'delete']);
+Route::get('geolocations/get-all/', [GeolocationController::class, 'getAll']); // superadmin only
+Route::get('geolocations/get-by-tracker-token/', [GeolocationController::class, 'getItemByTrackerToken']); // acceess_token передается как bearer в header
+Route::get('geolocations/get-latest-by-tracker-token/', [GeolocationController::class, 'getLatestItemByTrackerToken']); // acceess_token передается как bearer в header
+Route::post('geolocations/create/', [GeolocationController::class, 'create']); 
+//  Route::put('geolocations/update/{id}', [GeolocationController::class, 'update']);
+//  Route::delete('geolocations/delete/{id}', [GeolocationController::class, 'delete']);
 

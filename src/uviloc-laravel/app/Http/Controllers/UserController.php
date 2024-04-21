@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\ValidateAnyUserRequest;
 //use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\UpdateUserPasswordRequest;
+
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 
 use App\Service\UserService;
 
@@ -34,16 +36,16 @@ class UserController extends Controller
     }
 
 
-    // PUT
-    public function update($id, UpdateUserRequest $request)
-    {
-        return $this->UserService->update($id, $request);
-    }
+    // // PUT
+    // public function update(Request $request, UpdateUserRequest $update_request)
+    // {
+    //     return $this->UserService->update($request, $update_request);
+    // }
 
 
-    // DELETE
-    public function delete($id)
-    {
-        return $this->UserService->delete($id);
-    }
+    // // DELETE
+    // public function delete($id)
+    // {
+    //     return $this->UserService->delete($id);
+    // }
 }

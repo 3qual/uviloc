@@ -12,7 +12,7 @@ def generate_random_coordinates():
     return f"{latitude:.6f},{longitude:.6f}"
 
 def post_coordinates(value, tracker_token):
-    url = "http://localhost/api/geolocations/"
+    url = "http://localhost/api/geolocations/create/"
     geo_obj = {"tracker_token": tracker_token, "coordinates": value}
     x = requests.post(url, json = geo_obj)
     return x.text

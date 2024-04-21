@@ -23,13 +23,14 @@ class UpdateUserRequest extends FormRequest
     {
         return [
             'is_active'=> 'nullable',
-            'username'=> 'required|unique:users', 
+            'username'=> 'nullable|unique:users', 
             'name'=> 'nullable',
             'phone_number'=> 'nullable|unique:users',
             'email'=> 'nullable|unique:users',
             'path_to_avatar'=> 'nullable',
             'tg_chatid' => 'nullable|unique:users',
-            'password'=> 'required'
+            'password'=> 'nullable',
+            'access_token'=> 'nullable|unique:users'
         ];
     }
 }
