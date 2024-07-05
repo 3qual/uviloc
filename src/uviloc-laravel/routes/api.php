@@ -38,7 +38,7 @@ Route::delete('trackers/delete/{token}', [TrackerController::class, 'delete']);
 Route::get('geolocations/get-all/', [GeolocationController::class, 'getAll']); // superadmin only
 Route::get('geolocations/get-by-tracker-token/', [GeolocationController::class, 'getItemByTrackerToken']); // acceess_token передается как bearer в header
 Route::get('geolocations/get-latest-by-tracker-token/', [GeolocationController::class, 'getLatestItemByTrackerToken']); // acceess_token передается как bearer в header
-Route::post('geolocations/create/', [GeolocationController::class, 'create']); 
+Route::post('geolocations/create/', [GeolocationController::class, 'create']);
 //  Route::put('geolocations/update/{id}', [GeolocationController::class, 'update']);
 //  Route::delete('geolocations/delete/{id}', [GeolocationController::class, 'delete']);
 
