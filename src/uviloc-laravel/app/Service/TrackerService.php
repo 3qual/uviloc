@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Tracker;
 use App\Models\User;
+use App\Models\Geolocation;
 
 class TrackerService
 {
@@ -45,6 +46,7 @@ class TrackerService
 
     public function create($data)
     {
+        Geolocation::create(array_merge(array('tracker_token' => $data['token']), array('coordinates' => '37.825470,-122.47905')));
         return Tracker::create($data->toArray());
     }
 

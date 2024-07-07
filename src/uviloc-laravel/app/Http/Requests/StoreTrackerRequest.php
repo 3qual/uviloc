@@ -22,10 +22,16 @@ class StoreTrackerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'user_username'=> 'nullable',
-            'token'=> 'required|unique:trackers',
-            'sim_phone_number'=> 'nullable',
-            'name'=> 'nullable'
+            'user_username' => 'nullable',
+            'token' => 'required|unique:trackers',
+            'sim_phone_number' => 'nullable|unique:trackers',
+            'name' => 'nullable',
+            'battery_percentage' => 'nullable',
+            'signal_strength' => 'nullable',
+            'net_standart' => 'nullable',
+            'isp' => 'nullable',
+            'gps_state' => 'nullable',
+            'speed_kph' => 'nullable'
         ];
     }
 

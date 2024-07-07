@@ -13,7 +13,13 @@ class Tracker extends Model
         'user_username',
         'token',
         'sim_phone_number',
-        'name'
+        'name',
+        'battery_percentage',
+        'signal_strength',
+        'net_standart',
+        'isp',
+        'gps_state',
+        'speed_kph'
     ];
 
     public function user()

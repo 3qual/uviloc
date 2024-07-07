@@ -22,14 +22,13 @@ else:
 
 def generate_restricted_random_string():
     length = 18
-    excluded_chars = '#%&{}\\<>*?/$!\'":@+`|=' + ' '
-    allowed_chars = ''.join(set(string.printable) - set(excluded_chars) - set(string.whitespace))
+    allowed_chars = string.ascii_lowercase + string.digits
     random_string = ''.join(random.choice(allowed_chars) for _ in range(length))
     return random_string
 
 def post_tracker(token):
     url = api_url+"trackers/create/"
-    tracker_obj = {"user_username": "", "token": token, "sim_phone_number": "", "name": ""}
+    tracker_obj = {"token": token}
     x = requests.post(url, json = tracker_obj)
     return x.text
 
@@ -63,11 +62,19 @@ def create_qr_code(token):
     print('QR code generated!')
 
 
-print("\nEnter how many trackers you want generate")
+print("\nEnter how many trackers you want generate:")
 user_input = int(input()) 
 if user_input == 0:
-    print("\nBye, bye!\n")
-    quit()
+    print("\nManual enter tracker token:")
+    tracker_token = input()
+    if unique_token_check(tracker_token) == True:
+        print("\nTracke exists!")
+        quit()
+    else: 
+        print("\n\n"+tracker_token+"\n")
+        print(post_tracker(tracker_token))
+        create_qr_code(tracker_token)
+        print("\n"+str(os.getcwd()+"/qr_codes/"+tracker_token+".png"))
 
 for i in range(user_input):
     tracker_token = "uviloc_tracker-"+generate_restricted_random_string()

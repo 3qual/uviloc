@@ -17,6 +17,12 @@ return new class extends Migration
             $table->string('token')->required()->unique();
             $table->string('sim_phone_number')->nullable()->unique();
             $table->string('name')->nullable();
+            $table->integer('battery_percentage')->nullable();
+            $table->integer('signal_strength')->nullable();
+            $table->string('net_standart')->nullable();
+            $table->string('isp')->nullable();
+            $table->boolean('gps_state')->nullable();
+            $table->integer('speed_kph')->nullable();
             $table->timestamps();
         });
     }
