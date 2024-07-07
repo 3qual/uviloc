@@ -1,0 +1,4 @@
+192.168.65.1 - - [07/Jul/2024:10:36:35 +0000] "GET /api/trackers/get-all/ HTTP/1.1" 200 272 "-" "python-requests/2.31.0"
+192.168.65.1 - - [07/Jul/2024:10:36:35 +0000] "POST /api/trackers/create/ HTTP/1.1" 201 149 "-" "python-requests/2.31.0"
+192.168.65.1 - - [07/Jul/2024:10:38:31 +0000] "GET /api/trackers/get-all/ HTTP/1.1" 200 315 "-" "python-requests/2.31.0"
+192.168.65.1 - - [07/Jul/2024:10:38:31 +0000] "POST /api/trackers/create/ HTTP/1.1" 201 149 "-" "python-requests/2.31.0"
