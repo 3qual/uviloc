@@ -39,6 +39,12 @@ class TrackerController extends Controller
         return $this->TrackerService->getItemByUserAccessToken($request);
     }
 
+    // GET
+    public function getItemExistStatusByTrackerToken(GetTrackerByTokenRequest $data)
+    {
+        return $this->TrackerService->getItemExistStatusByTrackerToken($data);
+    }
+
     // POST
     public function create(StoreTrackerRequest $request)
     {

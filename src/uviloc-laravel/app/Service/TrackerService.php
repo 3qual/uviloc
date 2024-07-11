@@ -43,6 +43,19 @@ class TrackerService
         $user_username = User::where('access_token', $request->bearerToken())->first()['username'];
         return Tracker::where('user_username', $user_username)->get();
     }
+    
+    public function getItemExistStatusByTrackerToken($data)
+    {
+        $tracker = Tracker::where('token', $data['token'])->first();
+        if ($tracker == null)
+        {
+            return 0;
+        }
+        else
+        {
+            return 1;
+        }
+    }
 
     public function create($data)
     {
@@ -85,9 +98,18 @@ class TrackerService
     { 
         $tracker_find = Tracker::find(Tracker::where('token', $data['token'])->first()['id']);
         $tracker = $tracker_find;
-        $tracker->user_username = $data['user_username'];
-        $tracker->name = $data['name'];
-        $tracker->sim_phone_number = $data['sim_phone_number'];
+        if($data['user_username'] != null){
+            $tracker->user_username = $data['user_username'];
+        }
+        if($data['name'] != null){
+            $tracker->name = $data['name'];
+        }
+        if($data['sim_phone_number'] != null){
+            $tracker->sim_phone_number = $data['sim_phone_number'];
+        }
+        if($data['state'] != null){
+            $tracker->state = $data['state'];
+        }
         $tracker_find->update($tracker->toArray());
         return Tracker::find(Tracker::where('token', $data['token'])->first()['id']);
     }

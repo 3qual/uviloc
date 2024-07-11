@@ -31,7 +31,8 @@ class UpdateTrackerRequest extends FormRequest
             'net_standart' => 'nullable',
             'isp' => 'nullable',
             'gps_state' => 'nullable',
-            'speed_kph' => 'nullable'
+            'speed_kph' => 'nullable',
+            'state' => 'nullable'
         ];
     }
 

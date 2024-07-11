@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('isp')->nullable();
             $table->boolean('gps_state')->nullable();
             $table->integer('speed_kph')->nullable();
+            $table->string('state')->nullable();
             $table->timestamps();
         });
     }

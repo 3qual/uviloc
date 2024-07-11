@@ -30,6 +30,7 @@ Route::post('users/create-or-get/', [UserController::class, 'createorget']);
 Route::get('trackers/get-all/', [TrackerController::class, 'getAll']); // superadmin only
 Route::get('trackers/get-by-tracker-token/', [TrackerController::class, 'getItemByTrackerToken']); // acceess_token передается как bearer в header
 Route::get('trackers/get-by-access-token/', [TrackerController::class, 'getItemByUserAccessToken']); // acceess_token передается как bearer в header
+Route::get('trackers/get-exist-status-by-tracker-token/', [TrackerController::class, 'getItemExistStatusByTrackerToken']);
 Route::post('trackers/create/', [TrackerController::class, 'create']); 
 Route::put('trackers/link-to-user/', [TrackerController::class, 'linkToUser']); // acceess_token передается как bearer в header
 Route::put('trackers/update/', [TrackerController::class, 'update']);

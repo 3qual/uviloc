@@ -19,7 +19,8 @@ class Tracker extends Model
         'net_standart',
         'isp',
         'gps_state',
-        'speed_kph'
+        'speed_kph',
+        'state'
     ];
 
     public function user()
