@@ -32,7 +32,7 @@ def get_hostname():
 
 def check_token(token):
     #url = "http://17.22.0.103/api/trackers/get-exist-status-by-tracker-token/"
-    url = "http://localhost/api/trackers/get-exist-status-by-tracker-token/"
+    url = "http://17.22.0.103/api/trackers/get-exist-status-by-tracker-token/"
     token_obj = {"token": token}
     x = requests.get(url, json = token_obj)
     return x.text
@@ -47,7 +47,7 @@ def generate_random_coordinates():
 
 def post_coordinates(value, tracker_token):
     #url = "http://17.22.0.103/api/geolocations/create/"
-    url = "http://localhost/api/geolocations/create/"
+    url = "http://17.22.0.103/api/geolocations/create/"
     geo_obj = {"tracker_token": tracker_token, "coordinates": value}
     x = requests.post(url, json = geo_obj)
     return x.text
@@ -64,7 +64,7 @@ def write_tracker(tracker):
 
 def post_state(value, token):
     #url = "http://17.22.0.103/api/geolocations/create/"
-    url = "http://localhost/api/trackers/update/"
+    url = "http://17.22.0.103/api/trackers/update/"
     tracker_obj = {"token": token, "state": value}
     x = requests.put(url, json = tracker_obj)
     return x.text
