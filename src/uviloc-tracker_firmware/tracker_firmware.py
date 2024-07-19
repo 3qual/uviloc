@@ -74,8 +74,8 @@ def beep():
 
 
 # startup_update()
-#token = "uviloc_tracker-"+get_hostname()
-token = "uviloc_tracker-"+"nwjd4dbyvjqjtwffua"
+token = "uviloc_tracker-"+get_hostname()
+#token = "uviloc_tracker-"+"nwjd4dbyvjqjtwffua"
 token_exist = check_token(token)
 if (token_exist == "0"):
     err = "Token "+token+" doesnt exsist! Bad token, firmware error- 01"
