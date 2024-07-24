@@ -1,2 +1,2 @@
 # Uviloc
-Open source and private geo trackers soft
+Open source and private geo trackers software
