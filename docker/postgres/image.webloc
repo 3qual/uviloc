@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>URL</key>
-	<string>https://hub.docker.com/layers/library/postgres/16.1-alpine3.18/images/sha256-67e703325241704f209b5c1155702ad107870e876eebcf73bd398445ea99ef91?context=explore</string>
-</dict>
-</plist>
